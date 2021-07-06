@@ -2,7 +2,7 @@
 
 ## Description
 
->[RU] Модуль предназначен для работы с QIWI API благодаря фреймворку Node.JS
+>[RU] Модуль предназначен для работы с QIWI API благодаря фреймворку Node.JS</br>
 >[EU] The module is designed to work with the QIWI API thanks to the Node.JS framework
 
 ```bash
