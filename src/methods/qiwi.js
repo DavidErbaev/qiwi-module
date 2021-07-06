@@ -93,13 +93,49 @@ class API {
         })
     }
 
+    toWallet (params = {}) {
+        var options = {
+            body: {
+                id: (1000 * Date.now()).toString(),
+                sum: {
+                    amount: requestOptions.amount,
+                    currency: "643"
+                },
+                source: "account_643",
+                paymentMethod: {
+                    type: "Account",
+                    accountId: "643"
+                },
+                comment: requestOptions.comment,
+                fields: {
+                    account: requestOptions.account
+                }
+            },
+            json: true
+        };
+
+        return this.callMethod({
+            method_patch: "POST",
+            method: `payment-history/v2/persons/${account.authInfo.personId}/payments/total?${qs.stringify(request)}`
+        })
+    }
+
     async callMethod(params = {}) {
         let response;
+        let body = params.body ? JSON.stringify(params.body) : {};
 
-        response = await fetch(`${this.requestOptions.apiUrl}${params.method}`, {
-            method: params.method_patch,
-            headers: this.requestOptions.headers
-        })
+        if (params.method_patch == "GET") {
+            response = await fetch(`${this.requestOptions.apiUrl}${params.method}`, {
+                method: params.method_patch,
+                headers: this.requestOptions.headers
+            })
+        } else if(params.method_patch == "POST") {
+            response = await fetch(`${this.requestOptions.apiUrl}${params.method}`, {
+                method: params.method_patch,
+                headers: this.requestOptions.headers,
+                body: body
+            })
+        }
         if (response.statusText == "Unauthorized") throw new APIError("You have specified an invalid QIWI API token.")
 
         this.response = await response.json()
