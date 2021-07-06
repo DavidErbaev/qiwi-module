@@ -1,0 +1,31 @@
+{
+  "name": "qiwi-module",
+  "version": "1.0.0",
+  "description": "Module for working with API QIWI",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidErbaev/qiwi-module.git"
+  },
+  "dependencies": {
+    "query-string": "^7.0.1",
+    "node-fetch": "^2.6.1"
+  },
+  "keywords": [
+    "qiwi",
+    "api",
+    "qiwi-api",
+    "qiwi-bot",
+    "qiwi-module",
+    "qiwi-helper"
+  ],
+  "author": "David Volkov (VK: vk.com/id500580851)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidErbaev/qiwi-module/issues"
+  },
+  "homepage": "https://github.com/DavidErbaev/qiwi-module#readme"
+}
